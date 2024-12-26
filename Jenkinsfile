@@ -39,12 +39,11 @@ pipeline {
             }
         }
         
-        stage('Checkout K8S manifest SCM'){
-            steps {
-                url: 'https://github.com/Praspoud/learning_log.git',
-                branch: 'devops'
-            }
-        }
+        // stage('Checkout K8S manifest SCM'){
+        //     steps {
+        //         git branch: 'devops', url: 'https://github.com/Praspoud/learning_log.git'
+        //     }
+        // }
         
         stage('Update K8S manifest & push to Repo'){
             steps {
