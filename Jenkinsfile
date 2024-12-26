@@ -54,7 +54,7 @@ pipeline {
                         git config user.name "Prasis Poudel"
                         cd k8s-manifests
                         cat deployment.yml
-                        sed -i "s/replace/${BUILD_NUMBER}/g" deployment.yml
+                        sed -i "s/image: praspoud/learninglog:.*/image: praspoud/learninglog:${BUILD_NUMBER}/g" deployment.yml
                         cat deployment.yml
                         git add deployment.yml
                         git commit -m 'Updated the deployment yml | Jenkins Pipeline'
