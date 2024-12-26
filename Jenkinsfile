@@ -50,6 +50,8 @@ pipeline {
                 script{
                     withCredentials([usernamePassword(credentialsId: 'praspoud-github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                         sh '''
+                        git config user.email "abc@abc.com"
+                        git config user.name "Prasis Poudel"
                         cd k8s-manifests
                         cat deployment.yml
                         sed -i "s/32/${BUILD_NUMBER}/g" deployment.yml
