@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: learninglog
-        image: praspoud/learninglog:23
+        image: praspoud/learninglog:24
         ports:
         - containerPort: 8000
