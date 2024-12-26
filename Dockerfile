@@ -1,5 +1,5 @@
 FROM python:3
-RUN pip install django==5.1.3
+RUN pip install -r requirements.txt
 
 COPY . .
 
