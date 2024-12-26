@@ -51,11 +51,11 @@ pipeline {
                     withCredentials([usernamePassword(credentialsId: 'praspoud-github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                         sh '''
                         cd k8s-manifests
-                        cat deploy.yml
+                        cat deployment.yml
                         sed -i '' "s/32/${BUILD_NUMBER}/g" deploy.yml
-                        cat deploy.yml
-                        git add deploy.yml
-                        git commit -m 'Updated the deploy yaml | Jenkins Pipeline'
+                        cat deployment.yml
+                        git add deployment.yml
+                        git commit -m 'Updated the deployment yml | Jenkins Pipeline'
                         git remote -v
                         git push https://github.com/Praspoud/learning_log.git HEAD:devops
                         '''                        
