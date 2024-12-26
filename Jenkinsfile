@@ -48,13 +48,13 @@ pipeline {
         stage('Update K8S manifest & push to Repo'){
             steps {
                 script{
-                    withCredentials([usernamePassword(credentialsId: 'praspoud-github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                    withCredentials([gitUsernamePassword(credentialsId: 'praspoud-github', gitToolName: 'Default')]) {
                         sh '''
                         git config user.email "abc@abc.com"
                         git config user.name "Prasis Poudel"
                         cd k8s-manifests
                         cat deployment.yml
-                        sed -i "s/v1/${BUILD_NUMBER}/g" deployment.yml
+                        sed -i "s/replace/${BUILD_NUMBER}/g" deployment.yml
                         cat deployment.yml
                         git add deployment.yml
                         git commit -m 'Updated the deployment yml | Jenkins Pipeline'
