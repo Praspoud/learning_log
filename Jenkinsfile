@@ -59,7 +59,7 @@ pipeline {
                         git add deployment.yml
                         git commit -m 'Updated the deployment yml | Jenkins Pipeline'
                         git remote -v
-                        git push https://github.com/Praspoud/learning_log.git HEAD:devops
+                        git push https://github.com/Praspoud/learning_log.git HEAD:devops 
                         '''                        
                     }
                 }
